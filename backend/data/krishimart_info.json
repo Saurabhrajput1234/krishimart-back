@@ -1,0 +1,15 @@
+{
+  "name": "krishimart",
+  "description": "krishimart is a multi-vendor e-commerce platform that allows users to create their own shops, showcase products, and host events. It provides a seamless shopping experience with 24/7 support and ensures the best user experience.",
+  "features": [
+    "Create and manage your own shop",
+    "Showcase products with detailed descriptions",
+    "Host and promote events",
+    "Secure transactions with multiple payment options",
+    "24/7 customer support",
+    "User-friendly interface for vendors and buyers"
+  ],
+  "return_policy": "Customers can return products within 7 days if they are unused and in their original packaging.",
+  "payment_methods": "Supports credit/debit cards, UPI, net banking, and cash on delivery.",
+  "customer_support": "Available 24/7. Reach us via email at support@krishimart.com or through live chat on our website."
+}

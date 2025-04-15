@@ -1,0 +1,49 @@
+# Node.js dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+socket/node_modules/
+backend/insertFaqs.js
+
+# Environment files (Sensitive data)
+.env
+.env.local
+.env.development
+.env.production
+backend/config/.env
+frontend/.env  # Added frontend .env file
+backend/.env
+socket/.env
+
+# Logs & Debug Files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log*
+
+# Build files & Compiled output
+dist/
+build/
+backend/build/
+frontend/build/
+socket/build/
+.next/
+out/
+
+# Uploaded files (Avoid committing user uploads)
+backend/uploads/
+uploads/
+
+# Docker files (Local overrides)
+docker-compose.override.yml
+docker-compose.dev.yml
+*.pid
+*.sock
+
+# IDE & OS-specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
