@@ -1,15 +1,15 @@
 {
   "name": "krishimart",
-  "description": "krishimart is a multi-vendor e-commerce platform that allows users to create their own shops, showcase products, and host events. It provides a seamless shopping experience with 24/7 support and ensures the best user experience.",
+  "description": "KrishiMart is a land leasing and equipment rental platform that allows users to create their own shops, list agricultural equipment for rent, and offer land for leasing. It aims to simplify access to essential farming resources for both landowners and farmers, ensuring a hassle-free experience.",
   "features": [
     "Create and manage your own shop",
-    "Showcase products with detailed descriptions",
-    "Host and promote events",
+    "List and rent agricultural equipment",
+    "Offer land for leasing to farmers",
     "Secure transactions with multiple payment options",
     "24/7 customer support",
-    "User-friendly interface for vendors and buyers"
+    "User-friendly interface for both equipment/land owners and renters"
   ],
-  "return_policy": "Customers can return products within 7 days if they are unused and in their original packaging.",
-  "payment_methods": "Supports credit/debit cards, UPI, net banking, and cash on delivery.",
+  "return_policy": "Equipment can be returned within the agreed rental period in the same condition as received. Early returns should be communicated in advance.",
+  "payment_methods": "Supports credit/debit cards, UPI, net banking, and cash on delivery for eligible services.",
   "customer_support": "Available 24/7. Reach us via email at support@krishimart.com or through live chat on our website."
 }
