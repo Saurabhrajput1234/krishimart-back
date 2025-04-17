@@ -14,6 +14,7 @@ backend/config/.env
 frontend/.env  # Added frontend .env file
 backend/.env
 socket/.env
+ML-model/.env
 
 
 # Logs & Debug Files

@@ -2,20 +2,24 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import numpy as np
+import os
 import pickle
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
-DB_URL="mongodb+srv://saurabhrajput30072002:hQ3D5bHX8YZ8TUFL@studentdata.kv8ukp1.mongodb.net/krishimart?retryWrites=true&w=majority"
+
 # Load ML model and scalers
 model = pickle.load(open('model.pkl', 'rb'))
 scaler = pickle.load(open('standscaler.pkl', 'rb'))
 minmax_scaler = pickle.load(open('minmaxscaler.pkl', 'rb'))
 
 # MongoDB setup
-client = MongoClient(DB_URL)  # Replace with your MongoDB URI if using Atlas
+client = MongoClient(os.getenv("DB_URL")) # Replace with your MongoDB URI if using Atlas
 db = client['krishimart']
 collection = db['predictions']
 
