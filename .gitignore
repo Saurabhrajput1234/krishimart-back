@@ -14,7 +14,7 @@ backend/config/.env
 frontend/.env  # Added frontend .env file
 backend/.env
 socket/.env
-Crop-recommendation-model
+Crop-recommendation-model/.env
 
 # Logs & Debug Files
 logs/
