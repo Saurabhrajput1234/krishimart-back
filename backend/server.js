@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "*", // allows all origins
+    origin: "*", 
     credentials: false, // must be false when using "*"
   })
 );
@@ -79,7 +79,7 @@ app.use("/api/v2/chatbot", chatbotRoutes);
 app.use(ErrorHandler);
 
 // Start the server
-const server = app.listen(process.env.PORT || 3001, () => {
+const server = app.listen(process.env.PORT || 3002, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
 

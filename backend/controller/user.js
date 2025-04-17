@@ -51,9 +51,8 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-
-   const clientUrl = process.env.CLIENT_URL;
-const activationUrl = `${clientUrl}/activation/${activationToken}`;
+    
+    const activationUrl = `https://shopnest-fawn.vercel.app/activation/${activationToken}`;
 
     // Send activation email to the user
     try {
