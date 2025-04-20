@@ -14,64 +14,59 @@ const router = express.Router();
 
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
-    const userEmail = await User.findOne({ email });
+    const { name, email, password, phoneNumber, addresses } = req.body;
 
+    const userEmail = await User.findOne({ email });
     if (userEmail) {
       if (req.file && req.file.path) {
         fs.unlink(req.file.path, (err) => {
-          if (err) {
-            console.log("Error deleting file: ", err);
-            res.status(500).json({ message: "Error deleting file" });
-          }
+          if (err) console.log("Error deleting file: ", err);
         });
       }
       return next(new ErrorHandler("User already exists", 400));
     }
 
-    // Upload image to Cloudinary
+    
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "avatars",
     });
 
-    // Optionally delete the local file after successful upload
+    
     fs.unlink(req.file.path, (err) => {
-      if (err) {
-        console.log("Error deleting local file after upload: ", err);
-      }
+      if (err) console.log("Error deleting local file after upload: ", err);
     });
 
+    // Prepare full user object
     const user = {
       name,
       email,
       password,
+      phoneNumber,
+      addresses: addresses ? JSON.parse(addresses) : [], // Parse if coming as JSON string
       avatar: result.secure_url,
-      avatarPublicId: result.public_id, 
+      avatarPublicId: result.public_id,
     };
 
     const activationToken = createActivationToken(user);
-
-    
     const activationUrl = `http://localhost:3000/activation/${activationToken}`;
 
-    // Send activation email to the user
-    try {
-      await sendMail({
-        email: user.email,
-        subject: "Activate your account",
-        message: `Hello ${user.name}, please click on the link to activate your account ${activationUrl}`,
-      });
-      res.status(201).json({
-        success: true,
-        message: `Please check your email: ${user.email} to activate your account!`,
-      });
-    } catch (err) {
-      return next(new ErrorHandler(err.message, 500));
-    }
+    // Send activation email
+    await sendMail({
+      email: user.email,
+      subject: "Activate your account",
+      message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: `Please check your email: ${user.email} to activate your account!`,
+    });
+
   } catch (err) {
     return next(new ErrorHandler(err.message, 400));
   }
 });
+
 
 // Create activation token for user account activation
 const createActivationToken = (user) => {
