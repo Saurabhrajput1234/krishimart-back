@@ -31,12 +31,10 @@ app.use(limiter);
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: "*", 
-    credentials: false, // must be false when using "*"
-  })
-);
+app.use(cors({
+  origin: true,           
+  credentials: true      
+}));
 
 app.use("/", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
