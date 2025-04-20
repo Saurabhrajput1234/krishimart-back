@@ -51,9 +51,9 @@ const seller = {
 };
 
     const activationToken = createActivationToken(seller);
-    const clientUrl = process.env.CLIENT_URL;
+    
 
-    const activationUrl = `${clientUrl}/activation/${activationToken}`;
+    const activationUrl = `http://localhost:3000/activation/${activationToken}`;
 
     try {
       await sendMail({
