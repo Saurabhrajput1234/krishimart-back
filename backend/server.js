@@ -31,14 +31,11 @@ app.use(limiter);
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-  origin: true,           
-  credentials: true      
-}));
+app.use(cors());
 
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin); // allow dynamic origin
+  res.header("Access-Control-Allow-Origin", req.headers.origin); 
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
