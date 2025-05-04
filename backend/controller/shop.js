@@ -53,7 +53,7 @@ const seller = {
     const activationToken = createActivationToken(seller);
     
 
-    const activationUrl = `http://localhost:3000/activation/${activationToken}`;
+    const activationUrl = `http://localhost:5173/activation/${activationToken}`;
 
     try {
       await sendMail({
