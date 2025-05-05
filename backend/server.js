@@ -37,20 +37,25 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 // CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://krishi-theta.vercel.app",
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      // Restrict production to specific origins
-      const allowedOrigins = ['https://krishi-theta.vercel.app'];
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
+      callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: [
+    "Origin",
+    "X-Requested-With",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+  ],
   credentials: true,
 };
 
