@@ -53,7 +53,7 @@ const seller = {
     const activationToken = createActivationToken(seller);
     
 
-    const activationUrl = `https://krishi-theta.vercel.app/${activationToken}`;
+    const activationUrl = `https://krishi-theta.vercel.app/seller/activation/${activationToken}`;
 
     try {
       await sendMail({
