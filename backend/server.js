@@ -21,15 +21,15 @@ connectDatabase();
 // Security middlewares
 app.use(helmet());
 
-// Rate limiting middleware
+
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per window
+  windowMs: 15 * 60 * 1000,
+  max: 100, 
   message: "Too many requests from this IP, please try again later.",
 });
 app.use(limiter);
 
-// Body parsers and cookie parser
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -37,12 +37,11 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 // CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    // Allow all localhost origins (any port)
     if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) {
       callback(null, true);
     } else {
       // Restrict production to specific origins
-      const allowedOrigins = ['https://yourproductiondomain.com']; // Example production domain
+      const allowedOrigins = ['https://krishi-theta.vercel.app'];
       if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
         callback(null, true);
       } else {
