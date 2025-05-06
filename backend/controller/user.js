@@ -49,7 +49,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     };
 
     const activationToken = createActivationToken(user);
-    const activationUrl = `https://krishi-theta.vercel.app/activation/${activationToken}`;
+    const activationUrl = `https://shopnest-fawn.vercel.app/activation/${activationToken}`;
 
     // Send activation email
     await sendMail({

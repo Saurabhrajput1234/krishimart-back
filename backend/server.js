@@ -40,6 +40,8 @@ const corsOptions = {
     const allowedOrigins = [
       "http://localhost:5173",
       "https://krishi-theta.vercel.app",
+      "https://shopnest-fawn.vercel.app/"
+
     ];
 
     if (!origin || allowedOrigins.includes(origin)) {
