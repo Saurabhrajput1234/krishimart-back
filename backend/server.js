@@ -38,7 +38,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
-      "https://shopnest-fawn.vercel.app"
+      
+      "https://shopnest-fawn.vercel.app",
+      "https://krishi-theta.vercel.app"
 
     ];
 
