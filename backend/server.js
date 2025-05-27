@@ -39,7 +39,7 @@ const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
       
-      "https://shopnest-fawn.vercel.app",
+      "http://localhost:5173",
       "https://krishi-theta.vercel.app"
 
     ];
